@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bienvenida BTS</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      height: 350px;
+      background: url('https://i.pinimg.com/736x/d0/e2/24/d0e224b06458a89d2de0e7beedad6c8b.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: slideDown 1.2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4em;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    main {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeInMain 1.4s ease-in-out;
+    }
+
+    @keyframes fadeInMain {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .intro {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #5e5e5e;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    video {
+      display: block;
+      margin: 0 auto 50px auto;
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: zoomIn 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .integrantes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .miembro {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 175, 254, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .miembro.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: bounceIn 1s ease forwards;
+    }
+
+    .miembro:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(255, 175, 254, 0.8);
+    }
+
+    @keyframes bounceIn {
+      0% { transform: translateY(100px); opacity: 0; }
+      60% { transform: translateY(-20px); opacity: 1; }
+      80% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .miembro img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .miembro h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .countdown {
+      font-size: 18px;
+      color: #f7b0d1;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 16px;
+      color: #aaa;
+      padding: 20px;
+      background: #f2f2f2;
+      border-top: 1px solid #ddd;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .footer a {
+      color: #8e4c9c;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💜 ¡Bienvenidos de regreso BTS! 💜</h1>
+  </header>
+
+  <main>
+    <p class="intro">
+      El ARMY los ha estado esperando con mucho amor durante su servicio militar. Aquí celebramos su regreso, contamos los días para reunirnos nuevamente y recordamos cuánto significan para nosotros.
+    </p>
+
+    <center>
+      <video controls>
+        <source src="BTS.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+      <h2>Integrantes de BTS y su fecha de regreso del servicio militar</h2> 
+    </center>
+
+    <div class="integrantes">
+      <div class="miembro"><img src="https://i.pinimg.com/736x/f4/48/90/f44890b0b38e11545210f4d144ec0ff6.jpg" alt="Jin"><h3>Jin</h3><p class="countdown" id="countdown-jin"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/fb/1a/1f/fb1a1f5adfc5a6f2f4296af3d503e32a.jpg" alt="J-Hope"><h3>J-Hope</h3><p class="countdown" id="countdown-jhope"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/78/58/58/7858584a78aaa7acf2131103a7ea7215.jpg" alt="Suga"><h3>Suga</h3><p class="countdown" id="countdown-suga"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/f9/61/74/f96174f62b8d8983db9b8b02f8821260.jpg" alt="RM"><h3>RM</h3><p class="countdown" id="countdown-rm"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/31/9e/26/319e2668825ac3fc0936add4b64dfe99.jpg" alt="V"><h3>V</h3><p class="countdown" id="countdown-v"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/05/1a/7e/051a7e377ce6fc2d4a904cebbbed54db.jpg" alt="Jimin"><h3>Jimin</h3><p class="countdown" id="countdown-jimin"></p></div>
+      <div class="miembro"><img src="https://i.pinimg.com/736x/1c/00/3f/1c003f04cbefcf462b48c361ba8799ff.jpg" alt="Jungkook"><h3>Jungkook</h3><p class="countdown" id="countdown-jungkook"></p></div>
+    </div>
+
+    <div class="footer">
+      Página creada con 💜 por un fan del ARMY para celebrar su regreso. <a href="https://www.instagram.com/bts.bighitofficial?igsh=MXFmNWxia3FiajFkNw==">¡Visítanos para más noticias!</a>
+    </div>
+  </main>
+
+  <script>
+    function updateCountdown(id, targetDateStr) {
+      const countdownElement = document.getElementById(id);
+      const targetDate = new Date(targetDateStr).getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          countdownElement.innerHTML = "¡Ya regresó!";
+          clearInterval(interval);
+        } else {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+      }, 1000);
+    }
+
+    updateCountdown("countdown-jin", "2024-06-12");
+    updateCountdown("countdown-jhope", "2024-10-17");
+    updateCountdown("countdown-suga", "2025-06-14");
+    updateCountdown("countdown-rm", "2025-06-12");
+    updateCountdown("countdown-v", "2025-06-12");
+    updateCountdown("countdown-jimin", "2025-06-12");
+    updateCountdown("countdown-jungkook", "2025-06-12");
+
+    // Mostrar tarjetas con animación
+    const miembros = document.querySelectorAll('.miembro');
+    const mostrarMiembros = () => {
+      const trigger = window.innerHeight * 0.9;
+      miembros.forEach(m => {
+        const boxTop = m.getBoundingClientRect().top;
+        if (boxTop < trigger) m.classList.add('visible');
+      });
+    };
+
+    window.addEventListener('scroll', mostrarMiembros);
+    window.addEventListener('load', mostrarMiembros);
+  </script>
+</body>
+</html>
